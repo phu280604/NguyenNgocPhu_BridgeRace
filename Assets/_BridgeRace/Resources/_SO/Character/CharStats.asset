@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a4dcfb7398fad24cb568450658c8564, type: 3}
-  m_Name: Stats
+  m_Name: CharStats
   m_EditorClassIdentifier: 
   speed: 8

@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Parent Character
+/// Component parent controller for character.
 /// </summary>
-/// <typeparam name="T">DataType is State</typeparam>
-/// <typeparam name="U">DataType is Stats</typeparam>
-public class CharacterC<T, U> : MonoBehaviour
+public class CharacterC : MonoBehaviour
 {
-    #region --- Methods ---
+    #region --- Unity Methods ---
 
-
+    private void Awake()
+    {
+        OnInit();
+    }
 
     #endregion
 
-    #region --- Properties ---
+    #region --- Methods ---
 
-    public T State => state;
-    public U Stats => stats;
+    /// <summary>
+    /// Set up Character Information.
+    /// </summary>
+    protected void OnInit()
+    {
+        // Set up Color.
+        _setUpH.ChangeColorType(ref meshRend, _type);
+    }
 
     #endregion
 
@@ -27,10 +34,13 @@ public class CharacterC<T, U> : MonoBehaviour
     [Header("Unity components")]
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected CapsuleCollider capCol;
+    [SerializeField] protected MeshRenderer meshRend;
 
-    [Header("Character components")]
-    [SerializeField] protected T state;
-    [SerializeField] protected U stats;
+    [Header("Character Handler")]
+    [SerializeField] private CharacterSetUpH _setUpH;
+
+    [Header("Character color types")]
+    [SerializeField] protected EColor _type;
 
     #endregion
 }

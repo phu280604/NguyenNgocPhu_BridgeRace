@@ -2,44 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerC : CharacterC<PStateM, CharStatsSO>
+/// <summary>
+/// Represents a player controller that manages Player's handler.
+/// </summary>
+public class PlayerC : CharacterC
 {
     #region --- Unity Methods ---
 
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        GetDirection();
-        Move();
+        MoveHandle();
     }
 
     #endregion
 
     #region --- Methods ---
 
-    private void GetDirection()
+    /// <summary>
+    /// Handle move action.
+    /// </summary>
+    private void MoveHandle()
     {
-        Vector2 dir = _control.GetInput();
-        state.Direction = dir != Vector2.zero ? new Vector3(dir.x, 0, dir.y) : Vector3.zero;
-    }
+        _action.GetDirection(_control.GetInput());
 
-    private void Move()
-    {
-        gameObject.transform.Translate(state.Direction * stats.speed * Time.fixedDeltaTime, Space.World);
+        Transform goTrans = gameObject.transform;
+        _action.MoveH(ref goTrans, Time.deltaTime);
     }
 
     #endregion
 
     #region --- Fields ---
 
-    [Header("Handler")]
-    [SerializeField] private InputH _control;
+    [Header("Player handler")]
+    [SerializeField] private PlayerInputH _control;
+    [SerializeField] private PlayerActionH _action;
 
     #endregion
 }
