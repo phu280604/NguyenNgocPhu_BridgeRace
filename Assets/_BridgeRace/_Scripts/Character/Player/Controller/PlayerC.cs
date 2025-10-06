@@ -42,5 +42,8 @@ public class PlayerC : CharacterC
     [SerializeField] private PlayerInputH _control;
     [SerializeField] private PlayerActionH _action;
 
+    [Header("Test properties")]
+    public List<GameObject> _bricks = new List<GameObject>();
+
     #endregion
 }

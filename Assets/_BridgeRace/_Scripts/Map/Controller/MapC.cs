@@ -7,7 +7,7 @@ public class MapC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _mapH.GenerateBricks();
+        _mapH.GenerateBricks(this.gameObject.transform.position);
     }
 
     #region --- Fields ---

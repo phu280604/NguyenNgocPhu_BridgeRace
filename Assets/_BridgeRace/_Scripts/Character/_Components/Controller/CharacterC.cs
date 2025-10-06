@@ -29,6 +29,12 @@ public class CharacterC : MonoBehaviour
 
     #endregion
 
+    #region --- Properties ---
+
+    public EColor GetColorType() => _type;
+
+    #endregion
+
     #region --- Fields ---
 
     [Header("Unity components")]

@@ -9,11 +9,11 @@ public class MapActionH : MonoBehaviour
 {
     #region --- Methods ---
 
-    public void GenerateBricks()
+    public void GenerateBricks(Vector3 floorPos)
     {
         _col = (_mapM.column / 2);
         _row = (_mapM.row / 2);
-        Vector3 curPos = new Vector3(-_col, 0.4f, _row);
+        Vector3 curPos = new Vector3(-_col + floorPos.x, 0.4f + floorPos.y, _row + floorPos.z);
 
         for (int i = 0; i < _mapM.row; i++)
         {
@@ -32,6 +32,7 @@ public class MapActionH : MonoBehaviour
 
                 GameObject newBrick = Instantiate(_goBrick, tmp, Quaternion.identity, _goParBrick);
                 newBrick.name = $"Brick #{index}";
+                
             }
         }
     }
