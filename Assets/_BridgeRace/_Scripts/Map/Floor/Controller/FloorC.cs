@@ -10,14 +10,22 @@ public class FloorC : MonoBehaviour
 {
     #region --- Unity Methods ---
 
-    /// <summary>
-    /// Called by Unity before the first frame update.
-    /// Generates bricks at the position of this GameObject using the <see cref="_floorH"/> component.
-    /// </summary>
-    void Start()
+
+
+    #endregion
+
+    #region --- Methods ---
+
+    public void GenerateBrick()
     {
         _floorH.GenerateBricks(this.gameObject.transform.position);
     }
+
+    #endregion
+
+    #region --- Properties ---
+
+    public FloorStateM State => _floorStateM;
 
     #endregion
 
@@ -25,6 +33,7 @@ public class FloorC : MonoBehaviour
 
     [Header("Custom components")]
     [SerializeField] private FloorActionH _floorH;
+    [SerializeField] private FloorStateM _floorStateM;
 
     #endregion
 }
