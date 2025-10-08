@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Component parent controller for character.
 /// </summary>
-public class CharacterC : MonoBehaviour
+public class CharacterC<TStateM, TStatsM> : MonoBehaviour
 {
     #region --- Unity Methods ---
 
@@ -42,8 +42,10 @@ public class CharacterC : MonoBehaviour
     [SerializeField] protected CapsuleCollider capCol;
     [SerializeField] protected MeshRenderer meshRend;
 
-    [Header("Character Handler")]
+    [Header("Custom components")]
     [SerializeField] private CharacterSetUpH _setUpH;
+    [SerializeField] protected TStateM _stateM;
+    [SerializeField] protected TStatsM _statsM;
 
     [Header("Character color types")]
     [SerializeField] protected EColor _type;

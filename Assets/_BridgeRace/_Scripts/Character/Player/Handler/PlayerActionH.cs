@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
@@ -8,7 +9,7 @@ using UnityEngine;
 /// </summary>
 /// <remarks>This class extends <see cref="CharacterActionH{TState, TStats}"/> to provide player-specific function
 /// logic. It allows updating and handling action.</remarks>
-public class PlayerActionH : CharacterActionH<PlayerStateM, CharStatsSO>
+public class PlayerActionH : CharacterActionH
 {
     #region --- Overrides ---
 
@@ -17,11 +18,11 @@ public class PlayerActionH : CharacterActionH<PlayerStateM, CharStatsSO>
     /// </summary>
     /// <param name="objTrans">reference to Character's transform.</param>
     /// <param name="time">is a time in Update function.</param>
-    public override void MoveH(ref Transform objTrans, float time)
+    public override Vector3 MoveH(Vector2 dir2D, float movingParam, Vector3 curPos)
     {
-        if (!_canMove) return;
+        Vector3 dir3D = ConvertDirection2DTo3D(dir2D);
 
-        objTrans.position = Vector3.Lerp(objTrans.position, objTrans.position + _state.Direction, _statsSO.speed * time);
+        return Vector3.Lerp(curPos, curPos + dir3D, movingParam);
     }
 
     #endregion
@@ -36,18 +37,14 @@ public class PlayerActionH : CharacterActionH<PlayerStateM, CharStatsSO>
     /// cref="Vector3.zero"/>. The ability to move is determined based on whether <paramref name="dir"/> is
     /// non-zero.</remarks>
     /// <param name="dir">The direction of movement as a 2D vector. A value of <see cref="Vector2.zero"/> indicates no movement.</param>
-    public void GetDirection(Vector2 dir)
+    public Vector3 ConvertDirection2DTo3D(Vector2 dir2D)
     {
-       _state.Direction = dir != Vector2.zero ? new Vector3(dir.x, 0, dir.y) : Vector3.zero;
+       if(dir2D == Vector2.zero) return Vector3.zero;
 
-       _canMove = dir != Vector2.zero;
+        return new Vector3(dir2D.x, 0, dir2D.y);
     }
 
-    #endregion
-
-    #region --- Fields ---
-
-    private bool _canMove = false;
+    public float CalculateMovingParameter(float speed, float time) => speed * time;
 
     #endregion
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 /// </summary>
 /// <typeparam name="T">is a State datatype.</typeparam>
 /// <typeparam name="U">is a StatsSO datatype.</typeparam>
-public abstract class CharacterActionH<TState, TStats> : MonoBehaviour
+public abstract class CharacterActionH : MonoBehaviour
 {
     #region --- Methods ---
 
@@ -16,14 +17,7 @@ public abstract class CharacterActionH<TState, TStats> : MonoBehaviour
     /// </summary>
     /// <param name="objTrans">reference to Character's transform.</param>
     /// <param name="time">is a time in Update function.</param>
-    public abstract void MoveH(ref Transform objTrans, float time);
-
-    #endregion
-
-    #region --- Fields ---
-
-    [SerializeField] protected TState _state;
-    [SerializeField] protected TStats _statsSO;
+    public virtual Vector3 MoveH(Vector2 dir2D, float movingParam, Vector3 curPos) { return Vector3.zero; }
 
     #endregion
 }

@@ -5,16 +5,11 @@ using UnityEngine;
 /// <summary>
 /// Represents a player controller that manages Player's handler.
 /// </summary>
-public class PlayerC : CharacterC
+public class PlayerC : CharacterC<PlayerM, CharStatsSO>
 {
     #region --- Unity Methods ---
 
-    void Start()
-    {
-
-    }
-
-    void Update()
+    private void Update()
     {
         MoveHandle();
     }
@@ -28,10 +23,12 @@ public class PlayerC : CharacterC
     /// </summary>
     private void MoveHandle()
     {
-        _action.GetDirection(_control.GetInput());
+        _stateM.Direction = _control.GetInput();
 
-        Transform goTrans = gameObject.transform;
-        _action.MoveH(ref goTrans, Time.deltaTime);
+        float movingParam = _action.CalculateMovingParameter(_statsM.speed, Time.deltaTime);
+        Vector3 curPos = this.gameObject.transform.position;
+
+        this.gameObject.transform.position = _action.MoveH(_stateM.Direction, movingParam, curPos);
     }
 
     #endregion

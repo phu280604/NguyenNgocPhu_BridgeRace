@@ -103,6 +103,8 @@ MonoBehaviour:
   capCol: {fileID: 7564672705320418377}
   meshRend: {fileID: 4253259432631508510}
   _setUpH: {fileID: 7216028430125295736}
+  _stateM: {fileID: 214165424727482099}
+  _statsM: {fileID: 11400000, guid: e592b9b8071e55441928c461d3ee72a3, type: 2}
   _type: 3
   _control: {fileID: 4180647085704972605}
   _action: {fileID: 6386518866869948096}
@@ -294,8 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68f61e093159f641b1fb7a1a520ebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _state: {fileID: 214165424727482099}
-  _statsSO: {fileID: 11400000, guid: e592b9b8071e55441928c461d3ee72a3, type: 2}
 --- !u!114 &7216028430125295736
 MonoBehaviour:
   m_ObjectHideFlags: 0

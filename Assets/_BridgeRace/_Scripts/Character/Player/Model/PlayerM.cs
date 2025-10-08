@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Represents a character state that saves and reads information from states.
 /// </summary>
-public class PlayerStateM : MonoBehaviour
+public class PlayerM : MonoBehaviour
 {
     #region --- Properties ---
 
