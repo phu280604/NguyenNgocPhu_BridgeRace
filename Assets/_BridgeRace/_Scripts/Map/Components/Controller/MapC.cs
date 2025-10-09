@@ -22,23 +22,32 @@ public class MapC : MonoBehaviour
 
     private void CallSpawnBrickBaseOnFloor()
     {
-        if (LevelManager.Instance.Floor == count) return;
+        if (LevelManagerIns.Instance.LevelM.Floor == count) return;
 
-        if(LevelManager.Instance.Floor >= _floors.Count)
+        if(LevelManagerIns.Instance.LevelM.Floor >= _floors.Count)
         {
-            LevelManager.Instance.nextLevel();
+            LevelManagerIns.Instance.nextLevel();
             return;
         }
 
-        count = LevelManager.Instance.Floor;
+        count = LevelManagerIns.Instance.LevelM.Floor;
         _floors[count].GenerateBrick();
     }
 
     #endregion
 
+    #region --- Properties ---
+
+    public MapM MapM() => _model; 
+
+    #endregion
+
     #region --- Fields ---
 
+    [Header("Custom components")]
     [SerializeField] private List<FloorC> _floors = new List<FloorC>();
+    [SerializeField] private MapM _model;
+
     private int count = 0;
 
     #endregion

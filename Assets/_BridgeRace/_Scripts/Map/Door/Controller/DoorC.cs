@@ -12,7 +12,7 @@ public class DoorC : MonoBehaviour
 
         if (_floorC.State.IsAutoGenerate) return;
 
-        LevelManager.Instance.NextFloor();
+        LevelManagerIns.Instance.NextFloor();
         _floorC.State.IsAutoGenerate = true;
     }
 

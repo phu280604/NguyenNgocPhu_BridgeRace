@@ -13,7 +13,7 @@ public class FollowingObject : MonoBehaviour
 {
     #region --- Unity Methods ---
 
-    private void Awake()
+    private void Start()
     {
         OnInit();
     }
