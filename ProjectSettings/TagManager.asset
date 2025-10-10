@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Control
-  - brick
-  - bridge
+  - Brick
+  - BridgeBrick
   layers:
   - Default
   - TransparentFX

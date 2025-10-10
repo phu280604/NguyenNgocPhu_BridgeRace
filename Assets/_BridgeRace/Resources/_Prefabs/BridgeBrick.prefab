@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cebd014d8edebd438e723282492a453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goMeshBrick: {fileID: 311877225505379790}
-  stateM: {fileID: 1178271380754795837}
   _ctrl: {fileID: 8129137557315553102}
   isBuilt: 0
 --- !u!1 &311877225505379790
@@ -65,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6095422573524261282
 Transform:
   m_ObjectHideFlags: 0
@@ -88,7 +86,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311877225505379790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -101,7 +99,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0be1136486e3724e93fc1976f14211a, type: 2}
+  - {fileID: 2100000, guid: 73068013c8cf1d64692a772cdb7c3e1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,7 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6aa3a6ac80b848a49c481558fd967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorType: 0
+  meshBrick: {fileID: 480379028439164176}
+  colBrick: {fileID: 2945311457819746451}
 --- !u!1 &8849264874020531390
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +188,7 @@ GameObject:
   - component: {fileID: 8129137557315553102}
   m_Layer: 0
   m_Name: BridgeBrick
-  m_TagString: brick
+  m_TagString: BridgeBrick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,8 +230,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8, y: 2, z: 0.4}
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Size: {x: 0.8, y: 7, z: 0.4}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &8129137557315553102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,4 +246,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshBrick: {fileID: 480379028439164176}
   _brickActionH: {fileID: 5285600695653915791}
-  _brickStateM: {fileID: 1178271380754795837}
+  _brickM: {fileID: 1178271380754795837}

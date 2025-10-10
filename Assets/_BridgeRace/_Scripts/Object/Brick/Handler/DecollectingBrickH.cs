@@ -10,9 +10,7 @@ public class DecollectingBrickH : BrickH
     {
         if(bricks.Count <= 0) return;
 
-        if (isBuilt && colorType == stateM.ColorType) return;
-
-        MeshRenderer mr = goMeshBrick.GetComponent<MeshRenderer>();
+        if (isBuilt && colorType == _ctrl.ColorType) return;
 
         // Not build yet
         // Clone.
@@ -24,7 +22,7 @@ public class DecollectingBrickH : BrickH
 
         // Change color type.
         _ctrl.ChangeColor(LevelManagerIns.Instance.LevelM.ColorType().GetColor(colorType));
-        stateM.ColorType = colorType;
+        _ctrl.SetColorType(colorType);
 
         isBuilt = true;
     }
@@ -44,19 +42,17 @@ public class DecollectingBrickH : BrickH
 
     private void HideBrick()
     {
-        gameObject.GetComponentInParent<Collider>().enabled = false;
+        _ctrl.GetBrickM.GetCollider.enabled = false;
     }
 
     private void ShowBrick()
     {
-        goMeshBrick.SetActive(true);
+        _ctrl.GetBrickM.GetMeshRender.enabled = true;
     }
 
     #endregion
 
     #region --- Fields ---
-
-    [SerializeField] private BrickC _ctrl;
 
     [SerializeField] private bool isBuilt = false;
 

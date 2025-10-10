@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e6aa3a6ac80b848a49c481558fd967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorType: 0
+  meshBrick: {fileID: 8056635490735766952}
+  colBrick: {fileID: 5178975682615785769}
 --- !u!1 &6270571741807126967
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +59,7 @@ GameObject:
   - component: {fileID: 1419149858206294857}
   m_Layer: 0
   m_Name: Brick
-  m_TagString: brick
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshBrick: {fileID: 8056635490735766952}
   _brickActionH: {fileID: 1394165285230276659}
-  _brickStateM: {fileID: 6594444856580107181}
+  _brickM: {fileID: 6594444856580107181}
 --- !u!1 &7446126823189734619
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,8 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8849f6215fde6439bbd71c2d8d2de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goMeshBrick: {fileID: 9220671338556391555}
-  stateM: {fileID: 6594444856580107181}
+  _ctrl: {fileID: 1419149858206294857}
   selfObj: {fileID: 6270571741807126967}
   canCollect: 1
 --- !u!1 &9220671338556391555

@@ -8,7 +8,9 @@ public class CollectingBrickH : BrickH
 
     public override void OnAction(List<GameObject> bricks, Transform parentBrick, EColor colorType)
     {
-        if(!canCollect || stateM.ColorType != colorType) return;
+        if (!canCollect || _ctrl.ColorType != colorType) return;
+
+        canCollect = false;
 
         GameObject newBrick = Instantiate(selfObj, parentBrick);
 
@@ -17,15 +19,17 @@ public class CollectingBrickH : BrickH
         newBrick.transform.localPosition = new Vector3(0, bricks.Count == 0 ? height : height * bricks.Count, 0);
 
         bricks.Add(newBrick);
+
+
     }
 
     public override void OnVisual(EColor colorType)
     {
-        if (colorType == stateM.ColorType)
+        if (colorType == _ctrl.ColorType)
         {
             HideBrick();
 
-            Invoke("ShowBrick", 5f);
+            StartCoroutine(ShowBrick());
         }
     }
 
@@ -35,13 +39,17 @@ public class CollectingBrickH : BrickH
 
     private void HideBrick()
     {
-        goMeshBrick.SetActive(false);
-        canCollect = false;
+        _ctrl.GetBrickM.GetMeshRender.enabled = false;
+        _ctrl.GetBrickM.GetCollider.enabled = false;
     }
 
-    private void ShowBrick()
+    private IEnumerator ShowBrick()
     {
-        goMeshBrick.SetActive(true);
+        yield return new WaitForSeconds(3f);
+
+        _ctrl.GetBrickM.GetMeshRender.enabled = true;
+        _ctrl.GetBrickM.GetCollider.enabled = true;
+
         canCollect = true;
     }
 

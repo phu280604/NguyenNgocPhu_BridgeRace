@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickStateM : MonoBehaviour
+public class BrickM : MonoBehaviour
 {
     #region --- Properties ---
 
-    public EColor ColorType
-    {
-        get
-        {
-            return colorType;
-        }
-        set 
-        {
-            colorType = value;
-        }
-    }
+    public MeshRenderer GetMeshRender => meshBrick;
+    public Collider GetCollider => colBrick;
 
     #endregion
 
-    public EColor colorType;
+    #region --- Fields ---
+
+    [SerializeField] private MeshRenderer meshBrick;
+    [SerializeField] private Collider colBrick;
+
+    #endregion
 }

@@ -11,16 +11,11 @@ public abstract class BrickH : MonoBehaviour
 
     public abstract void OnVisual(EColor colorType);
 
-
     #endregion
 
     #region --- Fields ---
 
-    [Header("Unity components")]
-    [SerializeField] protected GameObject goMeshBrick;
-
-    [Header("Custom components")]
-    [SerializeField] protected BrickStateM stateM;
+    [SerializeField] protected BrickC _ctrl;
 
     #endregion
 }

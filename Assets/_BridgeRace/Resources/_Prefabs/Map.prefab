@@ -656,6 +656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorStructure #1
       objectReference: {fileID: 0}
+    - target: {fileID: 1175637702707583723, guid: cfd77b4ed5ca6034dac6006b1ceb7f2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5851085234437212120, guid: cfd77b4ed5ca6034dac6006b1ceb7f2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -722,6 +726,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2936074871788997079}
     m_Modifications:
+    - target: {fileID: 551376778067859675, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1681774716054439187, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -770,6 +778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorStructure #2
       objectReference: {fileID: 0}
+    - target: {fileID: 2485972712697603214, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2887908583990224690, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -789,6 +801,10 @@ PrefabInstance:
     - target: {fileID: 7587879506954297351, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997814886837037117, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9122841779900575929, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive

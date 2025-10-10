@@ -107,7 +107,6 @@ MonoBehaviour:
   _type: 3
   _control: {fileID: 4180647085704972605}
   _action: {fileID: 6386518866869948096}
-  _pModel: {fileID: 214165424727482099}
 --- !u!1 &3374694464894381930
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +118,7 @@ GameObject:
   - component: {fileID: 2963478071103093021}
   - component: {fileID: 4253259432631508510}
   - component: {fileID: 8755590612304302073}
+  - component: {fileID: 3870065913533038537}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -192,6 +192,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3374694464894381930}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &3870065913533038537
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374694464894381930}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 2}
 --- !u!1 &5679364779512909187
 GameObject:
   m_ObjectHideFlags: 0

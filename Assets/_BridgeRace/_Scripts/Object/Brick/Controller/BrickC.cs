@@ -8,7 +8,7 @@ public class BrickC : MonoBehaviour, ISetUpH
 
     public void SetColorType(EColor newColorType)
     {
-        _brickStateM.ColorType = newColorType;
+        ColorType = newColorType;
     }
 
     public void ChangeColor(Material newMat)
@@ -20,21 +20,35 @@ public class BrickC : MonoBehaviour, ISetUpH
 
     #region --- Unity Methods ---
 
-    private void OnTriggerEnter(Collider other)
+    public void OnActionC<TStateM, TStatsM>(CharacterC<TStateM, TStatsM> ctrl)
     {
-        if (other == null || !other.gameObject.CompareTag("Player")) return;
-
-        PlayerC ctrl = other.GetComponent<PlayerC>();
-
-        if (ctrl == null)
+        if(ctrl.GetStateM is CharacterM)
         {
-            Debug.Log("Can't get");
-            return;
-        }
+            CharacterM charM = ctrl.GetStateM as CharacterM;
 
-        _brickActionH.OnAction(ctrl.GetPlayerModel.Bricks, ctrl.GetPlayerModel.TransformParentBrick, ctrl.GetColorType);
-        _brickActionH.OnVisual(ctrl.GetColorType);
+            _brickActionH.OnAction(charM.Bricks, charM.TransformParentBrick, ctrl.GetColorType);
+            _brickActionH.OnVisual(ctrl.GetColorType);
+        }
+        
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (!other.CompareTag(TagCollection.PLAYER)) return;
+
+    //    CharacterC<CharacterM, CharStatsSO> charCtrl = other.GetComponent<CharacterC<CharacterM, CharStatsSO>>();
+
+    //    _brickActionH.OnAction(charCtrl.GetStateM.Bricks, charCtrl.GetStateM.TransformParentBrick, ctrl.GetColorType);
+    //    _brickActionH.OnVisual(ctrl.GetColorType);
+    //}
+
+    #endregion
+
+    #region --- Properties ---
+
+    public EColor ColorType { get; set; }
+
+    public BrickM GetBrickM => _brickM;
 
     #endregion
 
@@ -47,7 +61,7 @@ public class BrickC : MonoBehaviour, ISetUpH
     [SerializeField] private BrickH _brickActionH;
 
     [Header("Model components")]
-    [SerializeField] private BrickStateM _brickStateM;
+    [SerializeField] private BrickM _brickM;
 
     #endregion
 }

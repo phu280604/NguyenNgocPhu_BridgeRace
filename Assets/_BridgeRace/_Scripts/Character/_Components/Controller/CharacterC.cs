@@ -7,6 +7,18 @@ using UnityEngine;
 /// </summary>
 public class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
 {
+    #region --- Unity Methods ---
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag(TagCollection.BRICK) && !other.CompareTag(TagCollection.BRIDGE_BRICK)) return;
+
+        BrickC brickCtrl = other.GetComponent<BrickC>();
+        brickCtrl.OnActionC(this);
+    }
+
+    #endregion
+
     #region --- Methods ---
 
     public void SetColorType(EColor newColorType)
@@ -24,6 +36,8 @@ public class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
     #region --- Properties ---
 
     public EColor GetColorType => _type;
+
+    public TStateM GetStateM => _stateM;
 
     #endregion
 
