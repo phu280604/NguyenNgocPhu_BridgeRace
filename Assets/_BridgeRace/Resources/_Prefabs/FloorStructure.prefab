@@ -206,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71434117065d959469359b7a33b4989d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorPos: {x: 0, y: 0, z: 0}
   _floorH: {fileID: 7585563349663426765}
   _floorStateM: {fileID: 1080089167213146982}
+  _floorM: {fileID: 11400000, guid: 2876e07b8fbba8d438dc6127db88cecd, type: 2}
 --- !u!1 &2360848845897156314
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,8 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goBrick: {fileID: 6270571741807126967, guid: 6f6a5910780305e4da9228798824b440, type: 3}
   _goParBrick: {fileID: 3030948752216033901}
-  _floorM: {fileID: 11400000, guid: 2876e07b8fbba8d438dc6127db88cecd, type: 2}
-  _floorStateM: {fileID: 1080089167213146982}
+  _ctrl: {fileID: 5062345643761786200}
 --- !u!1 &5133612818888325654
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 
 /// <summary>
@@ -17,36 +19,72 @@ public class FloorActionH : MonoBehaviour
     /// bricks where the value is 1, and positions them relative to <paramref name="floorPos"/>.
     /// </summary>
     /// <param name="floorPos">The world position of the floor's origin for brick placement.</param>
-    public void GenerateBricks(Vector3 floorPos)
+    public void GenerateBricks(
+        int[] shapeBricks,
+        Vector2Int sizeShape,
+        Vector3 floorPos, 
+        Action<List<BrickC>> bricks)
     {
-        _col = (_floorM.column / 2);
-        _row = (_floorM.row / 2);
+        _col = sizeShape.y / 2;
+        _row = sizeShape.x / 2;
+
         Vector3 curPos = new Vector3(-_col + floorPos.x, 0.4f + floorPos.y, _row + floorPos.z);
 
-        for (int i = 0; i < _floorM.row; i++)
+        List<BrickC> listBricks = new List<BrickC>();
+
+        for (int i = 0; i < sizeShape.x; i++)
         {
             Vector3 tmp = curPos;
-            for (int j = 0; j < _floorM.column; j++)
+            for (int j = 0; j < sizeShape.y; j++)
             {
-                int index = i * _floorM.column + j;
+                int index = i * sizeShape.y + j;
 
                 if (i != 0 || j != 0)
                 {
                     tmp = new Vector3(curPos.x + j, curPos.y, curPos.z - i);
                 }
 
-                if (_floorM.shapeBricks[index] != 1)
+                if (shapeBricks[index] != 1)
                     continue;
 
                 GameObject newBrick = Instantiate(_goBrick, tmp, Quaternion.identity, _goParBrick);
                 newBrick.name = $"Brick #{index}";
+
+                BrickC ctrl = newBrick.GetComponent<BrickC>();
+
+                if(ctrl == null)
+                {
+                    Debug.LogError("Can't get BrickC");
+                    return;
+                }
+
+                if (!listBricks.Contains(ctrl))
+                    listBricks.Add(ctrl);
             }
         }
+
+        bricks?.Invoke(listBricks);
     }
 
-    public bool TriggerGenerate()
+    public void SplitBricks(
+        List<BrickC> bricks,
+        ref Vector2Int index,
+        EColor colorType,
+        Action<Vector3>? getPos)
     {
-        return _floorStateM.IsAutoGenerate;
+        for (int i = index.x; i < index.y; i++)
+        {
+            bricks[i].SetColorType(colorType);
+
+            Material mat = LevelManagerIns.Instance.LevelM.ColorType().GetColor(colorType);
+            bricks[i].ChangeColor(mat);
+
+            getPos?.Invoke(bricks[i].transform.position);
+        }
+
+        
+        int amount = index.y - index.x;
+        index = new Vector2Int(index.x + amount, index.y + amount); 
     }
 
     #endregion
@@ -56,10 +94,6 @@ public class FloorActionH : MonoBehaviour
     [Header("Unity components")]
     [SerializeField] private GameObject _goBrick;
     [SerializeField] private Transform _goParBrick;
-
-    [Header("Custom components")]
-    [SerializeField] private FloorMSO _floorM;
-    [SerializeField] private FloorStateM _floorStateM;
 
     private int _col = 0;
     private int _row = 0;

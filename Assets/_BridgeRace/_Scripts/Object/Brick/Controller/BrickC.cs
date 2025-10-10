@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickC : MonoBehaviour
+public class BrickC : MonoBehaviour, ISetUpH
 {
-    #region --- Unity Methods ---
+    #region --- Overrides ---
 
-    private void Awake()
+    public void SetColorType(EColor newColorType)
     {
-        OnInit();
+        _type = newColorType;
     }
+
+    public void ChangeColor(Material newMat)
+    {
+        meshBrick.SetMaterials(new List<Material> { newMat });
+    }
+
+    #endregion
+
+    #region --- Unity Methods ---
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,17 +32,8 @@ public class BrickC : MonoBehaviour
             return;
         }
 
-        _brickActionH.OnAction(ref ctrl._bricks, ctrl.GetColorType());
-        _brickActionH.OnVisual(ctrl.GetColorType());
-    }
-
-    #endregion
-
-    #region --- Methods ---
-
-    private void OnInit()
-    {
-        _setUpH.ChangeColorType(ref meshBrick, _brickStateM.ColorType);
+        _brickActionH.OnAction(ref ctrl._bricks, ctrl.GetColorType);
+        _brickActionH.OnVisual(ctrl.GetColorType);
     }
 
     #endregion
@@ -43,10 +43,13 @@ public class BrickC : MonoBehaviour
     [Header("Unity components")]
     [SerializeField] private MeshRenderer meshBrick;
 
+    [Header("Handler components")]
     [SerializeField] private BrickH _brickActionH;
-    [SerializeField] private CharacterSetUpH _setUpH;
 
+    [Header("Model components")]
     [SerializeField] private BrickStateM _brickStateM;
+
+    private EColor _type;
 
     #endregion
 }

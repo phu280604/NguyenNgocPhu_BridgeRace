@@ -23,7 +23,7 @@ public class DecollectingBrickH : BrickH
             Destroy(lastestBrick);
 
             // Change color type.
-            _setUpH.ChangeColorType(ref mr, colorType);
+            //Todo: Change material here
             stateM.ColorType = colorType;
 
             isBuilt = true;
@@ -56,8 +56,6 @@ public class DecollectingBrickH : BrickH
     #endregion
 
     #region --- Fields ---
-
-    [SerializeField] private CharacterSetUpH _setUpH;
 
     [SerializeField] private bool isBuilt = false;
 

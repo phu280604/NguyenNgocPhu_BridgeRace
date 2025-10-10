@@ -1,5 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -26,11 +27,33 @@ public class ColorSO : ScriptableObject
         return materials[0];
     }
 
+    public void SetListColor()
+    {
+        _availableColors = System.Enum.GetValues(typeof(EColor))
+            .Cast<EColor>()
+            .ToList();
+
+        if(_availableColors.Count > 0 ) 
+            _availableColors.RemoveAt(0);
+    }
+
+    public EColor GetRandomColor()
+    {
+        if(_availableColors.Count == 0)
+            SetListColor();
+
+        int randomIndex = UnityEngine.Random.Range(0, _availableColors.Count);
+        EColor color = _availableColors[randomIndex];
+        _availableColors.RemoveAt(randomIndex);
+        return color;
+    }
+
     #endregion
 
     #region --- Fields ---
 
-    public List<Material> materials = new List<Material>();
+    public List<Material> materials = new List<Material>(); 
+    private List<EColor> _availableColors = new List<EColor>();
 
     #endregion
 }

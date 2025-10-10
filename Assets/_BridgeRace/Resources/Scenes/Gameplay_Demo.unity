@@ -563,6 +563,7 @@ MonoBehaviour:
   _goBotPrefab: {fileID: 7503246581337390382, guid: dd678bdd39c081f45ac773ce69f3a9be, type: 3}
   _mapParent: {fileID: 2134776699}
   _goMapPrefab: {fileID: 784134733687405789, guid: 39b1312fc37997a49a25f04e315ce470, type: 3}
+  _colorType: {fileID: 11400000, guid: aeef3a9186312da459a74d88419e9204, type: 2}
   _npcLimit: 3
 --- !u!1 &958550957
 GameObject:

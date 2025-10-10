@@ -2,17 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotC : MonoBehaviour
+/// <summary>
+/// Represents a bot controller that manages bot's handler.
+/// </summary>
+public class BotC : CharacterC<BotStateM, CharStatsSO>
 {
-    // Start is called before the first frame update
-    void Start()
+    #region --- Unity Methods ---
+
+    private void Update()
     {
-        
+        //MoveHandle();
     }
 
-    // Update is called once per frame
-    void Update()
+    #endregion
+
+    #region --- Methods ---
+
+    /// <summary>
+    /// Handle move action.
+    /// </summary>
+    private void MoveHandle()
     {
-        
+       // TODO: MoveHandle for bot!
     }
+
+    #endregion
+
+    #region --- Fields ---
+
+    [Header("Player handler")]
+    //[SerializeField] private PlayerInputH _control;
+    //[SerializeField] private PlayerActionH _action;
+
+    [Header("Test properties")]
+    public List<GameObject> _bricks = new List<GameObject>();
+
+    #endregion
 }

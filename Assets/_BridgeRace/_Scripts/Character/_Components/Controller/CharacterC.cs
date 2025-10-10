@@ -5,33 +5,25 @@ using UnityEngine;
 /// <summary>
 /// Component parent controller for character.
 /// </summary>
-public class CharacterC<TStateM, TStatsM> : MonoBehaviour
+public class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
 {
-    #region --- Unity Methods ---
-
-    private void Awake()
-    {
-        OnInit();
-    }
-
-    #endregion
-
     #region --- Methods ---
 
-    /// <summary>
-    /// Set up Character Information.
-    /// </summary>
-    protected void OnInit()
+    public void SetColorType(EColor newColorType)
     {
-        // Set up Color.
-        _setUpH.ChangeColorType(ref meshRend, _type);
+        _type = newColorType;
+    }
+
+    public void ChangeColor(Material newMat)
+    {
+        meshRend.SetMaterials(new List<Material> { newMat });
     }
 
     #endregion
 
     #region --- Properties ---
 
-    public EColor GetColorType() => _type;
+    public EColor GetColorType => _type;
 
     #endregion
 
@@ -43,7 +35,6 @@ public class CharacterC<TStateM, TStatsM> : MonoBehaviour
     [SerializeField] protected MeshRenderer meshRend;
 
     [Header("Custom components")]
-    [SerializeField] private CharacterSetUpH _setUpH;
     [SerializeField] protected TStateM _stateM;
     [SerializeField] protected TStatsM _statsM;
 

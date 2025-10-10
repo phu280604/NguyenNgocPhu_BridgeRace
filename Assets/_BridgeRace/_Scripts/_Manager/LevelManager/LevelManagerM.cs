@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManagerM : MonoBehaviour
 {
-    #region --- Properties ---
+    #region --- Methods ---
 
     public Transform ObjParent() => _objParent;
 
@@ -15,13 +15,19 @@ public class LevelManagerM : MonoBehaviour
 
     public GameObject GOMapPrefab() => _goMapPrefab;
 
+    public ColorSO ColorType() => _colorType;
+
+    public int NpcLimit => _npcLimit;
+
+    #endregion
+
+    #region --- Properties ---
 
     public int Level { get; set; } = 0;
     public int Floor { get; set; } = 0;
 
-    public int NpcLimit() => _npcLimit;
-
-    public Dictionary<EColor, List<Vector3>> ObjsMatchWithKey { get; set; } = new Dictionary<EColor, List<Vector3>>();
+    public Dictionary<BotC, List<Vector3>> BotMatchBrickPos { get; set; } = new Dictionary<BotC, List<Vector3>>();
+    public EColor PlayerColorType { get; set; } = EColor.DEFAULT;
 
     #endregion
 
@@ -35,6 +41,9 @@ public class LevelManagerM : MonoBehaviour
     [Header("Map components")]
     [SerializeField] private Transform _mapParent;
     [SerializeField] private GameObject _goMapPrefab;
+
+    [Header("Scriptable objects")]
+    [SerializeField] private ColorSO _colorType;
 
     [Header("Parameters")]
     [SerializeField] private int _npcLimit;
