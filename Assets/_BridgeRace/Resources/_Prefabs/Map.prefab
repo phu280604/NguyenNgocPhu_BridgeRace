@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 6315145422662964327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 60.8}
+  m_LocalPosition: {x: 0, y: 5, z: 60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -489,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _floorH: {fileID: 5819554234104438647}
   _floorStateM: {fileID: 1298951296959083592}
+  _floorM: {fileID: 0}
 --- !u!1 &7403626915247174810
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,8 +567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goBrick: {fileID: 6270571741807126967, guid: 6f6a5910780305e4da9228798824b440, type: 3}
   _goParBrick: {fileID: 1124410585382310706}
-  _floorM: {fileID: 0}
-  _floorStateM: {fileID: 0}
 --- !u!1001 &674714529313100831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,21 +619,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorStructure #1
       objectReference: {fileID: 0}
-    - target: {fileID: 3198759631857736798, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3300895777317301135, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120743831042985224, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587879506954297351, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+    - target: {fileID: 2210896954392137594, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -783,6 +770,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorStructure #2
       objectReference: {fileID: 0}
+    - target: {fileID: 2887908583990224690, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638742201571612372, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4650742488455437520, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -790,6 +785,10 @@ PrefabInstance:
     - target: {fileID: 6361344096818307988, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587879506954297351, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9122841779900575929, guid: deb2c043c3ab62347a09b74ae2cb3759, type: 3}
       propertyPath: m_IsActive

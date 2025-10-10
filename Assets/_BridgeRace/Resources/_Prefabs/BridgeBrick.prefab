@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 59285255031344853}
   - component: {fileID: 5285600695653915791}
-  - component: {fileID: 4717862071011160338}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -46,22 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goMeshBrick: {fileID: 311877225505379790}
-  selfObj: {fileID: 0}
   stateM: {fileID: 1178271380754795837}
-  _setUpH: {fileID: 4717862071011160338}
---- !u!114 &4717862071011160338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4756447250157953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25e7a0fe3ffafb428cbfd8ee23dd569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colorSO: {fileID: 11400000, guid: aeef3a9186312da459a74d88419e9204, type: 2}
+  _ctrl: {fileID: 8129137557315553102}
+  isBuilt: 0
 --- !u!1 &311877225505379790
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +76,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7592127146179487965}
@@ -218,7 +204,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6095422573524261282}
@@ -261,5 +247,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshBrick: {fileID: 480379028439164176}
   _brickActionH: {fileID: 5285600695653915791}
-  _setUpH: {fileID: 4717862071011160338}
   _brickStateM: {fileID: 1178271380754795837}

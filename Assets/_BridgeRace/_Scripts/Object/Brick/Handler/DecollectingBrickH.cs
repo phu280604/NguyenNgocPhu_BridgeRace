@@ -8,26 +8,25 @@ public class DecollectingBrickH : BrickH
 
     public override void OnAction(List<GameObject> bricks, Transform parentBricks, EColor colorType)
     {
-        if(bricks.Count <= 0 || colorType == stateM.ColorType) return;
+        if(bricks.Count <= 0) return;
+
+        if (isBuilt && colorType == stateM.ColorType) return;
 
         MeshRenderer mr = goMeshBrick.GetComponent<MeshRenderer>();
 
         // Not build yet
-        if (colorType != stateM.ColorType)
-        {
-            // Clone.
-            GameObject lastestBrick = bricks[bricks.Count - 1];
+        // Clone.
+        GameObject lastestBrick = bricks[bricks.Count - 1];
 
-            // Remove from list and destroy.
-            bricks.RemoveAt(bricks.Count - 1 );
-            Destroy(lastestBrick);
+        // Remove from list and destroy.
+        bricks.RemoveAt(bricks.Count - 1);
+        Destroy(lastestBrick);
 
-            // Change color type.
-            //Todo: Change material here
-            stateM.ColorType = colorType;
+        // Change color type.
+        _ctrl.ChangeColor(LevelManagerIns.Instance.LevelM.ColorType().GetColor(colorType));
+        stateM.ColorType = colorType;
 
-            isBuilt = true;
-        }
+        isBuilt = true;
     }
 
     public override void OnVisual(EColor colorType)
@@ -56,6 +55,8 @@ public class DecollectingBrickH : BrickH
     #endregion
 
     #region --- Fields ---
+
+    [SerializeField] private BrickC _ctrl;
 
     [SerializeField] private bool isBuilt = false;
 
