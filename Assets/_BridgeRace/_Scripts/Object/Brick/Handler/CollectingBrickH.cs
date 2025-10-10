@@ -6,13 +6,15 @@ public class CollectingBrickH : BrickH
 {
     #region --- Overrides ---
 
-    public override void OnAction(ref List<GameObject> bricks, EColor colorType)
+    public override void OnAction(List<GameObject> bricks, Transform parentBrick, EColor colorType)
     {
         if(!canCollect || stateM.ColorType != colorType) return;
 
-        GameObject newBrick = Instantiate(selfObj);
-        newBrick.GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameObject newBrick = Instantiate(selfObj, parentBrick);
+
         newBrick.GetComponent<Collider>().enabled = false;
+
+        newBrick.transform.localPosition = new Vector3(0, bricks.Count == 0 ? height : height * bricks.Count, 0);
 
         bricks.Add(newBrick);
     }
@@ -50,6 +52,8 @@ public class CollectingBrickH : BrickH
     [SerializeField] protected GameObject selfObj;
 
     [SerializeField] private bool canCollect = true;
+
+    private float height = 0.5f;
 
     #endregion
 }

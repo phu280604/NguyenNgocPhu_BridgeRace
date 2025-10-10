@@ -8,7 +8,7 @@ public class BrickC : MonoBehaviour, ISetUpH
 
     public void SetColorType(EColor newColorType)
     {
-        _type = newColorType;
+        _brickStateM.ColorType = newColorType;
     }
 
     public void ChangeColor(Material newMat)
@@ -32,7 +32,7 @@ public class BrickC : MonoBehaviour, ISetUpH
             return;
         }
 
-        _brickActionH.OnAction(ref ctrl._bricks, ctrl.GetColorType);
+        _brickActionH.OnAction(ctrl.GetPlayerModel.Bricks, ctrl.GetPlayerModel.TransformParentBrick, ctrl.GetColorType);
         _brickActionH.OnVisual(ctrl.GetColorType);
     }
 
@@ -48,8 +48,6 @@ public class BrickC : MonoBehaviour, ISetUpH
 
     [Header("Model components")]
     [SerializeField] private BrickStateM _brickStateM;
-
-    private EColor _type;
 
     #endregion
 }

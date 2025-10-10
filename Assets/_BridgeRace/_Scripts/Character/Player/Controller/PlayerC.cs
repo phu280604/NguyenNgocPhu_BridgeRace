@@ -33,14 +33,20 @@ public class PlayerC : CharacterC<PlayerM, CharStatsSO>
 
     #endregion
 
+    #region --- Properties ---
+
+    public PlayerM GetPlayerModel => _pModel;
+
+    #endregion
+
     #region --- Fields ---
 
-    [Header("Player handler")]
+    [Header("Handler components")]
     [SerializeField] private PlayerInputH _control;
     [SerializeField] private PlayerActionH _action;
 
-    [Header("Test properties")]
-    public List<GameObject> _bricks = new List<GameObject>();
+    [Header("Model components")]
+    [SerializeField] private PlayerM _pModel;
 
     #endregion
 }

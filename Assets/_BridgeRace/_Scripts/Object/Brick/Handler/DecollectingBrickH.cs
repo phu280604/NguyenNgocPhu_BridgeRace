@@ -6,7 +6,7 @@ public class DecollectingBrickH : BrickH
 {
     #region --- Overrides ---
 
-    public override void OnAction(ref List<GameObject> bricks, EColor colorType)
+    public override void OnAction(List<GameObject> bricks, Transform parentBricks, EColor colorType)
     {
         if(bricks.Count <= 0 || colorType == stateM.ColorType) return;
 

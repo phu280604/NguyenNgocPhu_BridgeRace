@@ -7,7 +7,7 @@ public abstract class BrickH : MonoBehaviour
 {
     #region --- Methods ---
 
-    public abstract void OnAction(ref List<GameObject> bricks, EColor colorType);
+    public abstract void OnAction(List<GameObject> bricks, Transform parentBrick, EColor colorType);
 
     public abstract void OnVisual(EColor colorType);
 

@@ -11,5 +11,15 @@ public class PlayerM : MonoBehaviour
 
     public Vector3 Direction { get; set; }
 
+    public List<GameObject> Bricks { get; set; } = new List<GameObject>();
+
+    public Transform TransformParentBrick => _transParBrickSlot;
+
+    #endregion
+
+    #region --- Fields ---
+
+    [SerializeField] private Transform _transParBrickSlot;
+
     #endregion
 }
