@@ -8,7 +8,10 @@ public class DecollectingBrickH : BrickH
 
     public override void OnAction(List<GameObject> bricks, Transform parentBricks, EColor colorType)
     {
-        if(bricks.Count <= 0) return;
+        Debug.Log($"Bricks count: {bricks.Count}");
+        if (bricks.Count <= 0) return;
+
+        Debug.Log($"Color: {colorType}");
 
         if (isBuilt && colorType == _ctrl.ColorType) return;
 
@@ -30,20 +33,12 @@ public class DecollectingBrickH : BrickH
     public override void OnVisual(EColor colorType)
     {
         if(isBuilt)
-        {
             ShowBrick();
-            HideBrick();
-        }
     }
 
     #endregion
 
     #region --- Methods ---
-
-    private void HideBrick()
-    {
-        _ctrl.GetBrickM.GetCollider.enabled = false;
-    }
 
     private void ShowBrick()
     {

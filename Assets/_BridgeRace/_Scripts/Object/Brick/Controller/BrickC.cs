@@ -32,21 +32,11 @@ public class BrickC : MonoBehaviour, ISetUpH
         
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (!other.CompareTag(TagCollection.PLAYER)) return;
-
-    //    CharacterC<CharacterM, CharStatsSO> charCtrl = other.GetComponent<CharacterC<CharacterM, CharStatsSO>>();
-
-    //    _brickActionH.OnAction(charCtrl.GetStateM.Bricks, charCtrl.GetStateM.TransformParentBrick, ctrl.GetColorType);
-    //    _brickActionH.OnVisual(ctrl.GetColorType);
-    //}
-
     #endregion
 
     #region --- Properties ---
 
-    public EColor ColorType { get; set; }
+    public EColor ColorType { get; set; } = EColor.DEFAULT;
 
     public BrickM GetBrickM => _brickM;
 
