@@ -23,8 +23,6 @@ public abstract class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
 
     public abstract void OnMoveC();
 
-    public abstract void OnRotationC();
-
     public void SetColorType(EColor newColorType)
     {
         _type = newColorType;

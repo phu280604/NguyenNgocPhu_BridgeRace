@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7564672705320418377}
   - component: {fileID: 2533635319864016875}
   - component: {fileID: 9135065231962811336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4253259432631508510}
   - component: {fileID: 8755590612304302073}
   - component: {fileID: 3870065913533038537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8146700297448841271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrickSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378475811832482374}
   - component: {fileID: 214165424727482099}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 4929417969639021493}
   - component: {fileID: 4180647085704972605}
   - component: {fileID: 6386518866869948096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

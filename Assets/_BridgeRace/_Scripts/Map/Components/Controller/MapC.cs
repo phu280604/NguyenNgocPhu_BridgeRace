@@ -8,7 +8,7 @@ public class MapC : MonoBehaviour
 
     private void Start()
     {
-        _floors[count].GenerateBrick();
+        _model.Floors[count].GenerateBrick();
     }
 
     private void Update()
@@ -24,14 +24,14 @@ public class MapC : MonoBehaviour
     {
         if (LevelManagerIns.Instance.LevelM.Floor == count) return;
 
-        if(LevelManagerIns.Instance.LevelM.Floor >= _floors.Count)
+        if(LevelManagerIns.Instance.LevelM.Floor >= _model.Floors.Count)
         {
             LevelManagerIns.Instance.nextLevel();
             return;
         }
 
         count = LevelManagerIns.Instance.LevelM.Floor;
-        _floors[count].GenerateBrick();
+        _model.Floors[count].GenerateBrick();
     }
 
     #endregion
@@ -45,7 +45,6 @@ public class MapC : MonoBehaviour
     #region --- Fields ---
 
     [Header("Custom components")]
-    [SerializeField] private List<FloorC> _floors = new List<FloorC>();
     [SerializeField] private MapM _model;
 
     private int count = 0;

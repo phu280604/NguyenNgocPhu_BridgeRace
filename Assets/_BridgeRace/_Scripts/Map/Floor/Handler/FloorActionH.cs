@@ -76,7 +76,7 @@ public class FloorActionH : MonoBehaviour
         {
             bricks[i].SetColorType(colorType);
 
-            Material mat = LevelManagerIns.Instance.LevelM.ColorType().GetColor(colorType);
+            Material mat = LevelManagerIns.Instance.LevelM.ColorType.GetColor(colorType);
             bricks[i].ChangeColor(mat);
 
             getPos?.Invoke(bricks[i].transform.position);

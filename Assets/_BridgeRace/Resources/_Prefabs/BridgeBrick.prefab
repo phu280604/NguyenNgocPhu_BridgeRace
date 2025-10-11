@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59285255031344853}
   - component: {fileID: 5285600695653915791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6095422573524261282}
   - component: {fileID: 480379028439164176}
   - component: {fileID: 973948425640391285}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5539530000801994112}
   - component: {fileID: 1178271380754795837}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 7592127146179487965}
   - component: {fileID: 2945311457819746451}
   - component: {fileID: 8129137557315553102}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BridgeBrick
   m_TagString: BridgeBrick
   m_Icon: {fileID: 0}

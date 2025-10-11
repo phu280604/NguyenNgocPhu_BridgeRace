@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class LevelManagerM : MonoBehaviour
 {
-    #region --- Methods ---
+    #region --- Properties ---
 
-    public Transform ObjParent() => _objParent;
+    public Transform ObjParent => _objParent;
 
-    public GameObject GOPlayer() => _goPlayerPrefab;
-    public GameObject GOBot() => _goBotPrefab;
+    public GameObject GOPlayer => _goPlayerPrefab;
+    public GameObject GOBot => _goBotPrefab;
 
-    public Transform MapParent() => _mapParent;
+    public Transform MapParent => _mapParent;
 
-    public GameObject GOMapPrefab() => _goMapPrefab;
+    public GameObject GOMapPrefab => _goMapPrefab;
 
-    public ColorSO ColorType() => _colorType;
+    public Vector3 TransPosFinish { get; set; }
+
+    public ColorSO ColorType => _colorType;
 
     public int NpcLimit => _npcLimit;
-
-    #endregion
-
-    #region --- Properties ---
 
     public int Level { get; set; } = 0;
     public int Floor { get; set; } = 0;

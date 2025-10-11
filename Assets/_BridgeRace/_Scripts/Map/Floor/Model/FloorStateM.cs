@@ -8,5 +8,13 @@ public class FloorStateM : MonoBehaviour
 
     public bool IsAutoGenerate { get; set; } = false;
 
+    public List<Transform> TransDoors => _transDoors;
+
+    #endregion
+
+    #region --- Fields ---
+
+    [SerializeField] private List<Transform> _transDoors = new List<Transform>();
+
     #endregion
 }

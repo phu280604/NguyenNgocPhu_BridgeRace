@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class BotStateM : MonoBehaviour
+public class BotStateM : CharacterM
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region --- Properties ---
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<Vector3> TargetPositions { get; set; } = new List<Vector3>();
+    public NavMeshAgent NavMeshAgent  => _navMeshAgent;
+
+    public bool IsBuilding { get; set; } = false;
+
+    public int MaxBrickSlot => UnityEngine.Random.Range(5, 8);
+
+    #endregion
+
+    #region --- Fields ---
+
+    [SerializeField] private NavMeshAgent _navMeshAgent;
+
+    #endregion
 }

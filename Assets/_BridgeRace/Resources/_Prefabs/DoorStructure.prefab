@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5851085234437212120}
   - component: {fileID: 8151293959768195920}
   - component: {fileID: 7807228487479171467}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DoorStructure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8694313743667854287}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 537528883218587295}
   - component: {fileID: 5729523482441812373}
   - component: {fileID: 1519667111770955892}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PileLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 3079896358889418260}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.46, y: 0, z: 0}
+  m_LocalPosition: {x: 1.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5805022099831650530}
   - component: {fileID: 6385977605894579627}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 446206405844308811}
   - component: {fileID: 3678403812762294366}
   - component: {fileID: 6336440259900280741}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PileRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ Transform:
   m_GameObject: {fileID: 3449552328835994797}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.46, y: 0, z: 0}
+  m_LocalPosition: {x: -1.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 1232788674289480037}
   - component: {fileID: 2266438960318029446}
   - component: {fileID: 2521435281767743524}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PileTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,6 +454,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgeStructure
       objectReference: {fileID: 0}
+    - target: {fileID: 42659973426491464, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 93428095013590765, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181268627138206786, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2705984441455849180, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -493,6 +505,26 @@ PrefabInstance:
     - target: {fileID: 2705984441455849180, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884847143824381109, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180285808637698808, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182420725322724342, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276230809412888031, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7187551080455900108, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

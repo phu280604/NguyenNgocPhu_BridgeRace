@@ -21,7 +21,7 @@ public class DecollectingBrickH : BrickH
         Destroy(lastestBrick);
 
         // Change color type.
-        _ctrl.ChangeColor(LevelManagerIns.Instance.LevelM.ColorType().GetColor(colorType));
+        _ctrl.ChangeColor(LevelManagerIns.Instance.LevelM.ColorType.GetColor(colorType));
         _ctrl.SetColorType(colorType);
 
         isBuilt = true;

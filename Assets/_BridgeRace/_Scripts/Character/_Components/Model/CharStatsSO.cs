@@ -13,5 +13,7 @@ public class CharStatsSO : ScriptableObject
 
     public float speed;
 
+    public float rotationSpeed;
+
     #endregion
 }

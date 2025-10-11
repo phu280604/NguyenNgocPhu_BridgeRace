@@ -25,16 +25,6 @@ public class PlayerC : CharacterC<PlayerM, CharStatsSO>
         this.gameObject.transform.position = _action.MoveH(_stateM.Direction, movingParam, curPos);
     }
 
-    public override void OnRotationC()
-    {
-        if (_stateM.Direction == Vector3.zero) return;
-
-        _action.RotationH(_stateM.Direction, (targetRotation) =>
-        {
-            this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, targetRotation, Time.deltaTime * _statsM.speed);
-        });
-    }
-
     #endregion
 
     #region --- Unity Methods ---
@@ -66,6 +56,16 @@ public class PlayerC : CharacterC<PlayerM, CharStatsSO>
         if (_stateM.Bricks.Count <= 0)
             _stateM.CanMoving = false;
 
+    }
+
+    public void OnRotationC()
+    {
+        if (_stateM.Direction == Vector3.zero) return;
+
+        _action.RotationH(_stateM.Direction, (targetRotation) =>
+        {
+            this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, targetRotation, Time.deltaTime * _statsM.speed);
+        });
     }
 
     #endregion

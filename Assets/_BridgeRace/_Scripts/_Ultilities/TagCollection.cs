@@ -5,6 +5,8 @@ using UnityEngine;
 public static class TagCollection
 {
     public const string PLAYER = "Player";
+    public const string BOT = "Bot";
     public const string BRICK = "Brick";
     public const string BRIDGE_BRICK = "BridgeBrick";
+    public const string FINISH_POSITION = "Finish";
 }

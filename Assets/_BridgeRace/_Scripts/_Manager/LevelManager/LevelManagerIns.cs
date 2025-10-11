@@ -24,11 +24,11 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
 
     private void GenerateObject()
     {
-        _model.ColorType().SetListColor();
+        _model.ColorType.SetListColor();
 
         #region -- Spawn Map --
         Vector3 spawnPos = Vector3.zero;
-        _handler.GeneratePrefab(_model.GOMapPrefab(), _model.MapParent(), Vector3.zero, (newGo) =>
+        _handler.GeneratePrefab(_model.GOMapPrefab, _model.MapParent, Vector3.zero, (newGo) =>
         {
             newGo.name = "Map #0";
             MapC _ctrl = newGo.GetComponent<MapC>();
@@ -39,12 +39,12 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
                 return;
             }
             
-            spawnPos = _ctrl.MapM().SpawnPos();
+            spawnPos = _ctrl.MapM().SpawnPos;
         });
         #endregion
 
         #region -- Spawn Player --
-        _handler.GeneratePrefab(_model.GOPlayer(), _model.ObjParent(), new Vector3(spawnPos.x, spawnPos.y, spawnPos.z), (newGo) =>
+        _handler.GeneratePrefab(_model.GOPlayer, _model.ObjParent, new Vector3(spawnPos.x, spawnPos.y, spawnPos.z), (newGo) =>
         {
             newGo.name = "Player #0";
             PlayerC ctrl = newGo.GetComponent<PlayerC>();
@@ -72,7 +72,7 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
 
             for (int i = 1; i <= _model.NpcLimit - curBot; i++)
             {
-                _handler.GeneratePrefab(_model.GOBot(), _model.ObjParent(), new Vector3(spawnPos.x + i, spawnPos.y, spawnPos.z + i), (newGo) =>
+                _handler.GeneratePrefab(_model.GOBot, _model.ObjParent, new Vector3(spawnPos.x + i, spawnPos.y, spawnPos.z + i), (newGo) =>
                 {
                     newGo.name = $"Bot #{i}";
                     BotC ctrl = newGo.GetComponent<BotC>();
@@ -93,14 +93,16 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
             }
         }
         #endregion
+
+        _model.TransPosFinish = GameObject.FindWithTag(TagCollection.FINISH_POSITION).transform.position;
     }
 
     private void SetUpColorTypeForObject<TStateM, TStatsM>(CharacterC<TStateM, TStatsM> ctrl)
     {
-        EColor newColorType = _model.ColorType().GetRandomColor();
+        EColor newColorType = _model.ColorType.GetRandomColor();
 
         ctrl.SetColorType(newColorType);
-        ctrl.ChangeColor(_model.ColorType().GetColor(newColorType));
+        ctrl.ChangeColor(_model.ColorType.GetColor(newColorType));
     }
 
     public void nextLevel()

@@ -11,28 +11,69 @@ public class BotC : CharacterC<BotStateM, CharStatsSO>
 
     public override void OnMoveC()
     {
-        // TODO: MoveHandle for bot!
-        throw new System.NotImplementedException();
-    }
+        // If no bricks and is building, stop building => Build -> Collect
+        if (_stateM.Bricks.Count <= 0 && _stateM.IsBuilding)
+        {
+            _stateM.IsBuilding = false;
+            SetTarget();
+            return;
+        }
 
-    public override void OnRotationC()
-    {
-        // TODO: RotationHandle for bot!
-        throw new System.NotImplementedException();
+        // If brick slot is full, go to finish position and start building => Collect -> Build
+        if (_stateM.Bricks.Count >= _stateM.MaxBrickSlot && !_stateM.IsBuilding)
+        {
+            _stateM.NavMeshAgent.SetDestination(LevelManagerIns.Instance.LevelM.TransPosFinish);
+            _stateM.IsBuilding = true;
+            return;
+        }
+
+        // Collect brick if not building
+        if (!_stateM.NavMeshAgent.pathPending && _stateM.NavMeshAgent.remainingDistance <= _stateM.NavMeshAgent.stoppingDistance)
+            SetTarget();
     }
 
     #endregion
 
     #region --- Unity Methods ---
 
+    private void Start()
+    {
+        ResetBrickPos();
+        SetTarget();
+    }
+
     private void Update()
     {
+        OnMoveC();
+    }
 
+    #endregion
+
+    #region --- Methods ---
+
+    private void ResetBrickPos()
+    {
+        if (_stateM.TargetPositions.Count > 0) return;
+
+        _handler.SetTargetPos(this, (targets) =>
+        {
+            _stateM.TargetPositions = targets;
+        });
+    }
+
+    private void SetTarget()
+    {
+        _handler.SetTarget(_stateM.TargetPositions, (target, index) =>
+        {
+            _stateM.NavMeshAgent.SetDestination(target);
+        });
     }
 
     #endregion
 
     #region --- Fields ---
+
+    [SerializeField] private BotActionH _handler;
 
     #endregion
 }

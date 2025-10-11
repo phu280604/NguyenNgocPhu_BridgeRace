@@ -8,7 +8,7 @@ public class DoorC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag(TagCollection.PLAYER)) return;
+        if (!other.gameObject.CompareTag(TagCollection.PLAYER) && !other.gameObject.CompareTag(TagCollection.BOT)) return;
 
         if (_floorC.State.IsAutoGenerate) return;
 
