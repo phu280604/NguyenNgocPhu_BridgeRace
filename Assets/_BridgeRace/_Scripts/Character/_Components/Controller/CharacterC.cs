@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Component parent controller for character.
 /// </summary>
-public class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
+public abstract class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
 {
     #region --- Unity Methods ---
 
@@ -20,6 +20,10 @@ public class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
     #endregion
 
     #region --- Methods ---
+
+    public abstract void OnMoveC();
+
+    public abstract void OnRotationC();
 
     public void SetColorType(EColor newColorType)
     {

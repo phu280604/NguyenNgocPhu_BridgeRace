@@ -29,6 +29,12 @@ public class PlayerActionH : CharacterActionH
 
     #region --- Methods ---
     
+    public void RotationH(Vector2 dir, Action<Quaternion> onRotation)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(ConvertDirection2DTo3D(dir), Vector3.up);
+        onRotation.Invoke(targetRotation);
+    }
+
     /// <summary>
     /// Updates the movement direction and determines whether movement is allowed.
     /// </summary>

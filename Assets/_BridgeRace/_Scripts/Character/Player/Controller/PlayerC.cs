@@ -8,11 +8,41 @@ using UnityEngine;
 /// </summary>
 public class PlayerC : CharacterC<PlayerM, CharStatsSO>
 {
+    #region --- Overrides ---
+
+    public override void OnMoveC()
+    {
+        _stateM.Direction = _control.GetInput();
+
+        if (Mathf.Sign(_stateM.Direction.y) < 0)
+            _stateM.CanMoving = true;
+
+        if (!_stateM.CanMoving) return;
+
+        float movingParam = _action.CalculateMovingParameter(_statsM.speed, Time.deltaTime);
+        Vector3 curPos = this.gameObject.transform.position;
+
+        this.gameObject.transform.position = _action.MoveH(_stateM.Direction, movingParam, curPos);
+    }
+
+    public override void OnRotationC()
+    {
+        if (_stateM.Direction == Vector3.zero) return;
+
+        _action.RotationH(_stateM.Direction, (targetRotation) =>
+        {
+            this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation, targetRotation, Time.deltaTime * _statsM.speed);
+        });
+    }
+
+    #endregion
+
     #region --- Unity Methods ---
 
     private void Update()
     {
-        MoveHandle();
+        OnMoveC();
+        OnRotationC();
     }
 
     private void FixedUpdate()
@@ -23,24 +53,6 @@ public class PlayerC : CharacterC<PlayerM, CharStatsSO>
     #endregion
 
     #region --- Methods ---
-
-    /// <summary>
-    /// Handle move action.
-    /// </summary>
-    private void MoveHandle()
-    {
-        _stateM.Direction = _control.GetInput();
-
-        if (Mathf.Sign(_stateM.Direction.y) < 0)
-            _stateM.CanMoving = true;
-
-        if(!_stateM.CanMoving) return;
-
-        float movingParam = _action.CalculateMovingParameter(_statsM.speed, Time.deltaTime);
-        Vector3 curPos = this.gameObject.transform.position;
-
-        this.gameObject.transform.position = _action.MoveH(_stateM.Direction, movingParam, curPos);
-    }
 
     private void OnCheckBridgeBrick()
     {

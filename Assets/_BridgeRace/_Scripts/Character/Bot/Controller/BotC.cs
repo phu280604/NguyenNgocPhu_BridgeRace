@@ -7,35 +7,32 @@ using UnityEngine;
 /// </summary>
 public class BotC : CharacterC<BotStateM, CharStatsSO>
 {
-    #region --- Unity Methods ---
+    #region --- Overrides ---
 
-    private void Update()
+    public override void OnMoveC()
     {
-        //MoveHandle();
+        // TODO: MoveHandle for bot!
+        throw new System.NotImplementedException();
+    }
+
+    public override void OnRotationC()
+    {
+        // TODO: RotationHandle for bot!
+        throw new System.NotImplementedException();
     }
 
     #endregion
 
-    #region --- Methods ---
+    #region --- Unity Methods ---
 
-    /// <summary>
-    /// Handle move action.
-    /// </summary>
-    private void MoveHandle()
+    private void Update()
     {
-       // TODO: MoveHandle for bot!
+
     }
 
     #endregion
 
     #region --- Fields ---
-
-    [Header("Player handler")]
-    //[SerializeField] private PlayerInputH _control;
-    //[SerializeField] private PlayerActionH _action;
-
-    [Header("Test properties")]
-    public List<GameObject> _bricks = new List<GameObject>();
 
     #endregion
 }
