@@ -8,6 +8,9 @@ TagManager:
   - Brick
   - BridgeBrick
   - Bot
+  - Door
+  - Floor
+  - DoorFinish
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class CollectingBrickH : BrickH
 
         bricks.Add(newBrick);
 
-
+        OnVisual(colorType);
     }
 
     public override void OnVisual(EColor colorType)

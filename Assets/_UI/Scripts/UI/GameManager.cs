@@ -4,11 +4,11 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MySingleton<GameManager>
 {
     //[SerializeField] UserData userData;
     //[SerializeField] CSVData csv;
-    //private static GameState gameState = GameState.MainMenu;
+    private static EGameState gameState = EGameState.MainMenu;
 
     // Start is called before the first frame update
     protected void Awake()
@@ -28,19 +28,16 @@ public class GameManager : Singleton<GameManager>
         //csv.OnInit();
         //userData?.OnInitData();
 
-        //ChangeState(GameState.MainMenu);
+        ChangeState(EGameState.MainMenu);
 
-        UIManager.Ins.OpenUI<MianMenu>();
+        UIManager.Ins.OpenUI<MainMenu>();
     }
 
-    //public static void ChangeState(GameState state)
-    //{
-    //    gameState = state;
-    //}
+    public static void ChangeState(EGameState state)
+    {
+        gameState = state;
+    }
 
-    //public static bool IsState(GameState state)
-    //{
-    //    return gameState == state;
-    //}
-  
+    public static EGameState GetState() { return gameState; }
+
 }

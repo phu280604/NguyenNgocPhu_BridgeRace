@@ -21,3 +21,11 @@ public enum EColor
 }
 
 #endregion
+
+public enum EGameState
+{
+    MainMenu,
+    GamePlay,
+    Win,
+    Lose
+}

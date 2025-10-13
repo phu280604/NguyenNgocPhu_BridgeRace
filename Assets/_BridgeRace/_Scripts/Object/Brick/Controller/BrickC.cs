@@ -27,9 +27,20 @@ public class BrickC : MonoBehaviour, ISetUpH
             CharacterM charM = ctrl.GetStateM as CharacterM;
 
             _brickActionH.OnAction(charM.Bricks, charM.TransformParentBrick, ctrl.GetColorType);
-            _brickActionH.OnVisual(ctrl.GetColorType);
         }
         
+    }
+
+    #endregion
+
+    #region --- Methods ---
+
+    public void ResetBrick()
+    {
+        _brickActionH.OnVisual(EColor.DEFAULT);
+        SetColorType(EColor.DEFAULT);
+
+        meshBrick.enabled = false;
     }
 
     #endregion

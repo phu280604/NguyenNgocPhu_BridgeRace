@@ -21,6 +21,13 @@ public class FloorMEditor : Editor
 
         EditorGUI.BeginChangeCheck();
 
+        floorSO.nextLevel = (FloorMSO)EditorGUILayout.ObjectField(
+            "Next level", 
+            floorSO.nextLevel,
+            typeof(FloorMSO),
+            false
+        );
+
         // Edit column and row
         floorSO.column = EditorGUILayout.IntField("Column", floorSO.column);
         floorSO.row = EditorGUILayout.IntField("Row", floorSO.row);

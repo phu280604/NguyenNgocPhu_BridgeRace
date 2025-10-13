@@ -8,12 +8,9 @@ public class DecollectingBrickH : BrickH
 
     public override void OnAction(List<GameObject> bricks, Transform parentBricks, EColor colorType)
     {
-        Debug.Log($"Bricks count: {bricks.Count}");
         if (bricks.Count <= 0) return;
 
-        Debug.Log($"Color: {colorType}");
-
-        if (isBuilt && colorType == _ctrl.ColorType) return;
+        if (colorType == _ctrl.ColorType) return;
 
         // Not build yet
         // Clone.
@@ -27,13 +24,12 @@ public class DecollectingBrickH : BrickH
         _ctrl.ChangeColor(LevelManagerIns.Instance.LevelM.ColorType.GetColor(colorType));
         _ctrl.SetColorType(colorType);
 
-        isBuilt = true;
+        OnVisual(colorType);
     }
 
     public override void OnVisual(EColor colorType)
     {
-        if(isBuilt)
-            ShowBrick();
+        ShowBrick();
     }
 
     #endregion
@@ -44,12 +40,6 @@ public class DecollectingBrickH : BrickH
     {
         _ctrl.GetBrickM.GetMeshRender.enabled = true;
     }
-
-    #endregion
-
-    #region --- Fields ---
-
-    [SerializeField] private bool isBuilt = false;
 
     #endregion
 }

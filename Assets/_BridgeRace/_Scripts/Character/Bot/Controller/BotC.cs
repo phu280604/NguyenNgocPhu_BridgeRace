@@ -20,16 +20,19 @@ public class BotC : CharacterC<BotStateM, CharStatsSO>
         }
 
         // If brick slot is full, go to finish position and start building => Collect -> Build
-        if (_stateM.Bricks.Count >= _stateM.MaxBrickSlot && !_stateM.IsBuilding)
+        if (_stateM.Bricks.Count >= _stateM.MaxBrickSlot)
         {
-            _stateM.NavMeshAgent.SetDestination(LevelManagerIns.Instance.LevelM.TransPosFinish);
+            _stateM.NavMeshAgent.SetDestination(_stateM.FinishPos);
             _stateM.IsBuilding = true;
+
             return;
         }
 
         // Collect brick if not building
         if (!_stateM.NavMeshAgent.pathPending && _stateM.NavMeshAgent.remainingDistance <= _stateM.NavMeshAgent.stoppingDistance)
+        {
             SetTarget();
+        }
     }
 
     #endregion
@@ -61,6 +64,13 @@ public class BotC : CharacterC<BotStateM, CharStatsSO>
         });
     }
 
+    public void ResetFinishPos(List<Transform> doors)
+    {
+        int index = UnityEngine.Random.Range(0, doors.Count);
+
+        SetFinishPos(doors[index].position);
+    }
+
     private void SetTarget()
     {
         _handler.SetTarget(_stateM.TargetPositions, (target, index) =>
@@ -68,6 +78,20 @@ public class BotC : CharacterC<BotStateM, CharStatsSO>
             _stateM.NavMeshAgent.SetDestination(target);
         });
     }
+
+    public void SetFinishPos(Vector3 pos)
+    {
+        _stateM.FinishPos = pos;
+    }
+
+    public void ResetListBrick()
+    {
+        _stateM.Bricks.Clear();
+    }
+
+    #endregion
+
+    #region --- Properties ---
 
     #endregion
 

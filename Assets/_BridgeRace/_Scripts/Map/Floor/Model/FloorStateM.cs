@@ -10,6 +10,8 @@ public class FloorStateM : MonoBehaviour
 
     public List<Transform> TransDoors => _transDoors;
 
+    public List<BrickC> BricksOnFloor { get; set; } = new List<BrickC>();
+
     #endregion
 
     #region --- Fields ---

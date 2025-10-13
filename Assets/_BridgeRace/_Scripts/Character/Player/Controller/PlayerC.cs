@@ -68,6 +68,11 @@ public class PlayerC : CharacterC<PlayerM, CharStatsSO>
         });
     }
 
+    public void ResetListBrick()
+    {
+        _stateM.Bricks.Clear();
+    }
+
     #endregion
 
     #region --- Fields ---

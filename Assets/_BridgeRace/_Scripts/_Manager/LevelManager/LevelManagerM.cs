@@ -15,7 +15,7 @@ public class LevelManagerM : MonoBehaviour
 
     public GameObject GOMapPrefab => _goMapPrefab;
 
-    public Vector3 TransPosFinish { get; set; }
+    public MapC MapC { get; set; }
 
     public ColorSO ColorType => _colorType;
 
@@ -23,6 +23,8 @@ public class LevelManagerM : MonoBehaviour
 
     public int Level { get; set; } = 0;
     public int Floor { get; set; } = 0;
+
+    public bool IsReseting { get; set; } = false;
 
     public Dictionary<BotC, List<Vector3>> BotMatchBrickPos { get; set; } = new Dictionary<BotC, List<Vector3>>();
     public EColor PlayerColorType { get; set; } = EColor.DEFAULT;

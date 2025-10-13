@@ -32,6 +32,8 @@ public class FloorMSO : ScriptableObject
 
     public int[] shapeBricks;
 
+    public FloorMSO nextLevel;
+
     #endregion
 }
 

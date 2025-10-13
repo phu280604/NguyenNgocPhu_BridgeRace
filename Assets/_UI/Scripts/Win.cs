@@ -9,7 +9,18 @@ public class Win : UICanvas
 
     public void MainMenuButton()
     {
-        UIManager.Ins.OpenUI<MianMenu>();
+        UIManager.Ins.OpenUI<MainMenu>();
+        Close(0);
+    }
+
+    public void NextButton()
+    {
+        UIManager.Ins.OpenUI<GamePlay>();
+
+        GameManager.ChangeState(EGameState.GamePlay);
+
+        Time.timeScale = 1f;
+
         Close(0);
     }
 }

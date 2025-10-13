@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7807228487479171467}
   m_Layer: 12
   m_Name: DoorStructure
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2386601733748150224, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2705984441455849180, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -521,6 +525,10 @@ PrefabInstance:
     - target: {fileID: 4276230809412888031, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363146026616968518, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7187551080455900108, guid: b9077c8bce2b13f4d8d11923cb724f1c, type: 3}
       propertyPath: m_Layer

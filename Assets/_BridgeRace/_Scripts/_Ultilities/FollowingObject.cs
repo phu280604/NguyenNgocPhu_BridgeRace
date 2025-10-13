@@ -13,30 +13,15 @@ public class FollowingObject : MonoBehaviour
 {
     #region --- Unity Methods ---
 
-    private void Start()
-    {
-        OnInit();
-    }
-
     private void Update()
     {
-        FollowTarget();
+        if(GameManager.GetState() == EGameState.GamePlay)
+            FollowTarget();
     }
 
     #endregion
 
     #region --- Methods ---
-
-    /// <summary>
-    /// Performs initialization logic for the object, including locating the target element.
-    /// </summary>
-    /// <remarks>This method is called to set up the necessary state or dependencies required for the object
-    /// to function correctly. It invokes the <see cref="FindTarget"/> method to locate and prepare the target
-    /// element.</remarks>
-    private void OnInit()
-    {
-        FindTarget();
-    }
 
     /// <summary>
     /// Locates the first GameObject in the scene with the specified tag and assigns its transform to the target.
@@ -60,6 +45,7 @@ public class FollowingObject : MonoBehaviour
         if(_target == null)
         {
             Debug.LogError("Target isn't found!");
+            FindTarget();
             return;
         }
 

@@ -8,5 +8,6 @@ public static class TagCollection
     public const string BOT = "Bot";
     public const string BRICK = "Brick";
     public const string BRIDGE_BRICK = "BridgeBrick";
-    public const string FINISH_POSITION = "Finish";
+    public const string DOOR = "Door";
+    public const string FINISH = "DoorFinish";
 }

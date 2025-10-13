@@ -10,9 +10,11 @@ public class BotStateM : CharacterM
     public List<Vector3> TargetPositions { get; set; } = new List<Vector3>();
     public NavMeshAgent NavMeshAgent  => _navMeshAgent;
 
+    public Vector3 FinishPos { get; set; }
+
     public bool IsBuilding { get; set; } = false;
 
-    public int MaxBrickSlot => UnityEngine.Random.Range(5, 8);
+    public int MaxBrickSlot => UnityEngine.Random.Range(8, 12);
 
     #endregion
 

@@ -10,13 +10,36 @@ public class DoorC : MonoBehaviour
     {
         if (!other.gameObject.CompareTag(TagCollection.PLAYER) && !other.gameObject.CompareTag(TagCollection.BOT)) return;
 
-        if (_floorC.State.IsAutoGenerate) return;
+        if(gameObject.CompareTag(TagCollection.FINISH) && other.gameObject.CompareTag(TagCollection.BOT))
+        {
+            UIManager.Ins.OpenUI<Lose>();
+            GameManager.ChangeState(EGameState.Lose);
 
-        LevelManagerIns.Instance.NextFloor();
-        _floorC.State.IsAutoGenerate = true;
+            Time.timeScale = 0f;
+
+            return;
+        }
+
+        GetController(other.GetComponent<PlayerC>());
+
+        GetController(other.GetComponent<BotC>());
     }
 
     #endregion
+
+    private void GetController<TStateM, TStatsM>(CharacterC<TStateM, TStatsM> ctrl)
+    {
+        if (ctrl == null) return;
+
+        BotC botCtrl = null;
+        if (ctrl is BotC)
+        {
+            botCtrl = ctrl as BotC;
+        }
+
+        LevelManagerIns.Instance.NextFloor(_floorC, ctrl.GetColorType, botCtrl);
+        _floorC.State.IsAutoGenerate = true;
+    }
 
     #region --- Fields ---
 

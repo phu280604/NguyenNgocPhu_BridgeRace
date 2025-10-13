@@ -9,7 +9,7 @@ public abstract class CharacterC<TStateM, TStatsM> : MonoBehaviour, ISetUpH
 {
     #region --- Unity Methods ---
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(TagCollection.BRICK) && !other.CompareTag(TagCollection.BRIDGE_BRICK)) return;
 
