@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 /// FloorMSO represents the shape of bricks that are built on the floor.
 /// It stores the number of columns and rows, and the array of bricks for this floor.
 /// </summary>
-[CreateAssetMenu(fileName = "MapData", menuName = "Map")]
+[CreateAssetMenu(fileName = "MapData", menuName = "Map/Floor")]
 public class FloorMSO : ScriptableObject
 {
     #region --- Methods ---

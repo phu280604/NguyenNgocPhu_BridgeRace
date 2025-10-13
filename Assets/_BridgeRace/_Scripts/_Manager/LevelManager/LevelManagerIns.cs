@@ -11,7 +11,10 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
     public void OnInit()
     {
         _model.BotMatchBrickPos.Clear();
+
         GenerateObject();
+
+        LoadLevel();
     }
 
     private void GenerateObject()
@@ -150,7 +153,18 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
 
         ResetCharacter();
 
+        if(_model.Level < _model.MapC.MapM().MapData.Count)
+            _model.Level++;
+        else
+        {
+            _model.Level = 1;
+            
+        }
+
         _model.Floor = 0;
+
+        SaveLevel();
+        LoadLevel();
     }
 
     public void RestartLevel()
@@ -191,6 +205,19 @@ public class LevelManagerIns : MySingleton<LevelManagerIns>
             int index = UnityEngine.Random.Range(0, _model.MapC.MapM().Floors[_model.Floor].State.TransDoors.Count);
             bot.SetFinishPos(_model.MapC.MapM().Floors[_model.Floor].State.TransDoors[index].position);
         }
+    }
+
+    private void SaveLevel()
+    {
+        PlayerPrefs.SetInt(StringCollection.LEVEL, _model.Level);
+    }
+
+    private void LoadLevel()
+    {
+        _model.Level = PlayerPrefs.GetInt(StringCollection.LEVEL, 1);
+
+        UIManager.Ins.GetUI<GamePlay>()?.SetLevel(_model.Level);
+        _model.MapC.LoadLevelMap(_model.Level);
     }
 
     #endregion

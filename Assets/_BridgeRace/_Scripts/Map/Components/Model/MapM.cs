@@ -28,6 +28,8 @@ public class MapM : MonoBehaviour
 
     public List<FloorC> Floors => _floors;
 
+    public List<LevelMapSO> MapData => _mapData;
+
     public bool IsTriggered { get; set; } = false;
 
     #endregion
@@ -37,6 +39,8 @@ public class MapM : MonoBehaviour
     [SerializeField] private Transform _spawnPos;
 
     [SerializeField] private List<FloorC> _floors = new List<FloorC>();
+
+    [SerializeField] private List<LevelMapSO> _mapData = new List<LevelMapSO>();
 
     #endregion
 }

@@ -12,6 +12,13 @@ public class FloorC : MonoBehaviour
 
     #region --- Methods ---
 
+    public void OnInit(FloorMSO floorM)
+    {
+        _floorM = floorM;
+        _floorStateM.IsAutoGenerate = false;
+        _floorStateM.BricksOnFloor.Clear();
+    }
+
     public void GenerateBrick(List<EColor> colors)
     {
         if(_floorStateM.BricksOnFloor.Count > 0)
@@ -117,6 +124,10 @@ public class FloorC : MonoBehaviour
     #region --- Properties ---
 
     public FloorStateM State => _floorStateM;
+    public FloorMSO GetFloorM { 
+        get => _floorM; 
+        set => _floorM = value;
+    }
 
     #endregion
 

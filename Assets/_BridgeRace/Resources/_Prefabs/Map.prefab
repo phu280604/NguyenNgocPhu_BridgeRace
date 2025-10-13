@@ -396,6 +396,12 @@ MonoBehaviour:
   - {fileID: 5700433154740472135}
   - {fileID: 3077436798549756426}
   - {fileID: 6218406365661809455}
+  _mapData:
+  - {fileID: 11400000, guid: ddf49c3a66da3934d88f74c4bab56703, type: 2}
+  - {fileID: 11400000, guid: 186449072bc0a2e4cb87e4787a6f4ceb, type: 2}
+  - {fileID: 11400000, guid: 29cd9237c89e17b4ab37ead592b32c53, type: 2}
+  - {fileID: 11400000, guid: 7b8e456d2a255ba4ca31cf080bf69d6a, type: 2}
+  - {fileID: 11400000, guid: 30544ae93aaebdd49a286a5fbf09ba11, type: 2}
 --- !u!1 &5790446310181763602
 GameObject:
   m_ObjectHideFlags: 0

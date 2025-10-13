@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GamePlay : UICanvas
 {
+    #region --- Methods ---
+
     public void WinButton()
     {
         UIManager.Ins.OpenUI<Win>().score.text = Random.Range(100, 200).ToString();
@@ -20,4 +22,17 @@ public class GamePlay : UICanvas
     {
         UIManager.Ins.OpenUI<Setting>();
     }
+
+    public void SetLevel(int level)
+    {
+        levelText.text = "Level " + level;
+    }
+
+    #endregion
+
+    #region --- Fields ---
+
+    [SerializeField] private TMPro.TextMeshProUGUI levelText;
+
+    #endregion
 }

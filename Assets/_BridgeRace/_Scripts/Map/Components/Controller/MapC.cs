@@ -6,11 +6,6 @@ public class MapC : MonoBehaviour
 {
     #region --- Unity methods ---
 
-    private void Start()
-    {
-        OnInit();
-    }
-
     private void Update()
     {
         if(GameManager.GetState() == EGameState.GamePlay)
@@ -35,6 +30,29 @@ public class MapC : MonoBehaviour
 
         _model.Floors[0].GenerateBrick(colors);
         _model.Floors[0].State.IsAutoGenerate = true;
+    }
+
+    public void LoadLevelMap(int level)
+    {
+        LevelMapSO levelMap = null;
+        foreach (LevelMapSO item in _model.MapData)
+        {
+            if(item.level == level)
+            {
+                levelMap = item;
+                break;
+            }
+        }
+
+        for(int i = 0; i < levelMap.floorMSOs.Count; i++)
+        {
+            if (i < _model.Floors.Count)
+            {
+                _model.Floors[i].OnInit(levelMap.floorMSOs[i]);
+            }
+        }
+
+        OnInit();
     }
 
     private void CallSpawnBrickBaseOnFloor()

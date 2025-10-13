@@ -21,7 +21,7 @@ public class LevelManagerM : MonoBehaviour
 
     public int NpcLimit => _npcLimit;
 
-    public int Level { get; set; } = 0;
+    public int Level { get; set; } = 1;
     public int Floor { get; set; } = 0;
 
     public bool IsReseting { get; set; } = false;
